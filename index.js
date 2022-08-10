@@ -20,12 +20,14 @@ function render(arr){
 for(let j=0;j<arr.length;j++){
   arrayElements.insertAdjacentHTML("beforeend", arr[j].htmlEl)
   const generatedDiv = document.getElementById("generated-el-" + j)
+  console.log(generatedDiv)
   generatedDiv.style.width = `${arr[j].val/5}%`
   generatedDiv.style.maxHeight = `20%`
   generatedDiv.style.height = 90/slider.value+"%"
   generatedDiv.style.fontSize = 10/slider.value+"em"
   generatedDiv.style.marginTop="1px"
-}  }
+}
+}
 
 function fillArray(){
 for(let i=0;i<slider.value;i++){
@@ -41,6 +43,13 @@ function removeElements(){
     const deleteEl = document.getElementById("generated-el-" + k)
     deleteEl.remove()
   }}
+
+  function copyArray(from,to){
+    for(let i=0;i<from.length;i++){
+      to[i]=from[i]
+    }
+
+  }
 
 document.getElementById("generate-btn").addEventListener("click", function(){
   divs = []
@@ -61,14 +70,26 @@ document.getElementById("sort-btn").addEventListener('click', async function(){
         const next = document.getElementById("generated-el-" + (j+1))
         
 
-      if(Number(current.innerText) < Number(next.innerText)){
-          //current.before(next)
-          next.after(current)
-          console.log(current.innerText)
-          console.log(next.innerText)
+      if(divs[j].val < divs[j+1].val){
+        console.log("swapped")
+          current.style.backgroundImage="linear-gradient(to right, green,#303234,green)"
+          next.style.backgroundImage="linear-gradient(to right, green,#303234,green)"
+          await delay(1000)
+          current.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
+          next.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
+          let temp = divs[j]
+          divs[j]=divs[j+1]
+          divs[j+1]=temp
+          let tempArr = []
+          copyArray(divs, tempArr)
+          removeElements()
+          copyArray(tempArr, divs)
+          console.log(divs)
+          tempArr = []
+          render(divs)
+          
         }
-        await delay(50)
-      }
+            }
     }
    
 })
