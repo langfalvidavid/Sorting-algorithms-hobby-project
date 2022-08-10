@@ -1,0 +1,105 @@
+/* ---- Nav bar ---- */
+
+header{
+        padding: 5px 5px;
+        margin-bottom: 1em;
+        height: 15vh;
+    }
+    
+    header ul{
+        display:flex;
+        font-size: .8rem;
+        justify-content: space-between;
+        padding: 0;
+    }
+    
+    header ul li {
+        list-style: none;
+    }
+    
+    header ul li a{
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .current{
+        -webkit-text-stroke: .6px white;
+        color:white;
+    }
+    
+    a:hover,
+    a:focus{
+        animation: opacity-change 1s;
+        animation-fill-mode: forwards;
+    }
+    
+    .controlling{
+        display:flex;
+        justify-content: space-between;
+        margin-top: 2em;
+    }
+
+    .slidecontainer{
+        display: flex;
+        width: 35%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #value{
+        margin-left: .75em;
+    }
+
+    .slider {
+        -webkit-appearance: none; 
+        appearance: none; 
+        outline: none;
+        border-radius: 50px;
+        height: 75%;
+        background-image: linear-gradient(to bottom right,#4682B4,#7DF9FF,#4682B4);
+    }
+
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width:15%;
+        height:20px;
+        border-radius: 50px;
+        background-image: radial-gradient(white 30%, black 40%);
+        cursor: pointer;
+      }
+
+
+    .header-btns{
+        width: 60%;
+    }
+
+    .header-btn{
+        padding: .5em 1em;
+        background-image: linear-gradient(to bottom right,#4682B4,#7DF9FF,#4682B4);
+        border:none;
+        border-radius:50px;
+        font-weight: 700;
+        text-shadow: 0 0 1px black;
+        letter-spacing: 1.5px;
+        cursor: pointer;
+    }
+
+    .header-btn:hover,
+    .header-btn:focus{
+        opacity: .6;
+        transform:scale(1.005)
+    }
+
+    #generate-btn{
+        margin-right: .75em;
+    }
+
+    @keyframes opacity-change {
+        from{
+            border-bottom: 2px solid rgba(255, 255, 255, 0%);
+        }
+        to{
+            border-bottom: 2px solid rgba(255,255,255,100%);
+        }
+    }

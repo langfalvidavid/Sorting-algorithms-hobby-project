@@ -1,0 +1,17 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    background-image: linear-gradient(to bottom,#303234,#545557, #303234);
+    color: white;
+    font-weight: 600;
+}
+.container{
+    max-width:650px;
+    text-shadow: 0 1px 3px black;
+    letter-spacing: 1px;
+}
+

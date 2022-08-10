@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizer</title>
+    <link href="index.css" rel="stylesheet">
+    <link href="css_elements/navbar.css" rel="stylesheet">
+    <link href="css_elements/main.css" rel="stylesheet">
+    <link href="css_elements/footer.css" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="container">
+        <header>
+            <ul>
+                <li class="current"><a href="#">Bubble sort</a></li>
+                <li><a href="#">Selection sort</a></li>
+                <li><a href="#">Insertion sort</a></li>
+                <li><a href="#">Merge sort</a></li>
+                <li><a href="#">Quicksort</a></li>
+                <li><a href="#">Counting sort</a></li>
+            </ul>
+            <div class="controlling">
+                <div class="slidecontainer">
+                    <input type="range" min="2" max="100" class="slider" id="element-slider">
+                    <label id="value" for="element-slider"></label>
+                  </div>
+                <div class="header-btns">
+                    <button class="header-btn" id="generate-btn">Generate elements</button>
+                    <button class="header-btn" id="sort-btn">Sort elements</button>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="array-elements" id="array-el">
+            </div>
+        </main>
+        <footer>
+            <p>Created by Dávid Lángfalvi</p>
+        </footer>
+    </div>
+    <script type="module" src="index.js"></script>
+</body>
+</html>

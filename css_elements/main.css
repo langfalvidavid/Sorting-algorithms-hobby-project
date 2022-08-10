@@ -1,0 +1,18 @@
+/* ---- Main ---- */
+
+main{
+    height: 80vh;
+    margin: 0;
+}
+
+.array-elements{
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.generated-elements{
+    background-image: linear-gradient(to right,#00BFFF,#9400D3);
+    border-radius: 50px;
+}
