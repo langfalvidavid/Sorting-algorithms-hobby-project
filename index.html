@@ -17,6 +17,7 @@
 <body>
     <div class="container">
         <header>
+            <div class="sort-picker">
             <ul>
                 <li class="current"><a href="#">Bubble sort</a></li>
                 <li><a href="#">Selection sort</a></li>
@@ -25,10 +26,13 @@
                 <li><a href="#">Quicksort</a></li>
                 <li><a href="#">Counting sort</a></li>
             </ul>
+        </div>
             <div class="controlling">
                 <div class="slidecontainer">
                     <input type="range" min="2" max="100" class="slider" id="element-slider">
+                    <input type="range" min="2" max="100" class="slider" id="speed-slider">
                     <label id="value" for="element-slider"></label>
+                    <label id="speed" for="speed-slider"></label>
                   </div>
                 <div class="header-btns">
                     <button class="header-btn" id="generate-btn">Generate elements</button>

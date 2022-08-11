@@ -1,13 +1,25 @@
 import {randomNum, delay} from './js_elements/utils.js'
-// ---- Slider ----
+// ---- Slider (element count) ----
 
-let slider = document.getElementById("element-slider");
-let output = document.getElementById("value");
-output.innerHTML = slider.value;
+let elSlider = document.getElementById("element-slider");
+let elOutput = document.getElementById("value");
+elOutput.innerHTML = elSlider.value;
 document.getElementById("element-slider").oninput = function() {
-  output.innerHTML = this.value;
+  elOutput.innerHTML = this.value;
 }
 
+// ---- Slider (speed) ----
+
+let speedSlider = document.getElementById("speed-slider");
+let speedOutput = document.getElementById("speed");
+speedOutput.innerHTML = speedSlider.value;
+document.getElementById("speed-slider").oninput = function() {
+  speedOutput.innerHTML = this.value;
+}
+speedSlider.style.display="none"
+speedOutput.style.display="none"
+const sortBtn = document.getElementById("sort-btn")
+sortBtn.style.display="none"
 
 
 let divs = []
@@ -22,17 +34,18 @@ for(let j=0;j<arr.length;j++){
   const generatedDiv = document.getElementById("generated-el@" + arr[j].id)
   generatedDiv.style.width = `${arr[j].val/5}%`
   generatedDiv.style.maxHeight = `20%`
-  generatedDiv.style.height = 90/slider.value+"%"
-  generatedDiv.style.fontSize = 10/slider.value+"em"
+  generatedDiv.style.height = 90/elSlider.value+"%"
+  generatedDiv.style.fontSize = 10/elSlider.value+"em"
   generatedDiv.style.marginTop="1px"
+  generatedDiv.style.position="relative"
 }
 }
 
 function fillArray(){
-for(let i=0;i<slider.value;i++){
+for(let i=0;i<elSlider.value;i++){
   const newRandom = randomNum()
   
-    const generatedDiv = {htmlEl:`<div id="generated-el@${i}" class="generated-elements">${newRandom}</div>`,
+    const generatedDiv = {htmlEl:`<div id="generated-el@${i}" class="generated-elements"><p>${newRandom}</p></div>`,
                           val: newRandom,
                           id: i}
     divs.push(generatedDiv)
@@ -50,12 +63,17 @@ function removeElements(){
     }
 
   }
-
-document.getElementById("generate-btn").addEventListener("click", function(){
+const generateBtn = document.getElementById("generate-btn")
+generateBtn.addEventListener("click", function(){
   divs = []
   removeElements()
   fillArray()
   render(divs)
+  generateBtn.style.display="none"
+  sortBtn.style.display="inline-block"
+  elSlider.style.display="inline-block"
+  elOutput.style.display="inline-block"
+  
   }
 )
 

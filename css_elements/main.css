@@ -16,3 +16,12 @@ main{
     background-image: linear-gradient(to right,#00BFFF,#9400D3);
     border-radius: 50px;
 }
+
+.generated-elements p{
+    position:absolute;
+    margin:0;
+    top:45%;
+    left:50%;
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+}

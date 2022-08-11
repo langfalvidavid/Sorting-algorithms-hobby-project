@@ -13,7 +13,7 @@ body{
 .container{
     display:flex;
     flex-direction: column;
-    max-width:650px;
+    max-width:480px;
     text-shadow: 0 1px 3px black;
     letter-spacing: 1px;
     height: 95vh;
