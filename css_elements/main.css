@@ -1,12 +1,13 @@
 /* ---- Main ---- */
 
 main{
-    height: 80vh;
+    height: 85%;
     margin: 0;
+    overflow:hidden;
 }
 
 .array-elements{
-    height: 100%;
+    height:100%;
     display:flex;
     flex-direction: column;
     justify-content: space-evenly;

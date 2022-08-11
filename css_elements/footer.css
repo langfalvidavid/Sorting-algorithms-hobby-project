@@ -1,8 +1,10 @@
 footer{
-    margin: 1.5em 0 0 0;
-    height: 3vh;
+    margin-top: 1.5em;
+    box-sizing: unset;
+    height: 5%;
+    border-top: 1px solid lightgrey;
 }
 
 footer p{
-    margin: 0;
+    margin-top: 1em;
 }
