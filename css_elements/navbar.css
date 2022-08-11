@@ -9,7 +9,7 @@ header{
     
     header ul{
         display:flex;
-        font-size: .8rem;
+        font-size: .4rem;
         justify-content: space-between;
         padding: 0;
     }
