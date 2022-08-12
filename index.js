@@ -1,4 +1,5 @@
 import {randomNum, delay} from './js_elements/utils.js'
+
 // ---- Slider (element count) ----
 
 let elSlider = document.getElementById("element-slider");
@@ -10,12 +11,12 @@ document.getElementById("element-slider").oninput = function() {
 
 // ---- Slider (speed) ----
 
-let speedSlider = document.getElementById("speed-slider");
-let speedOutput = document.getElementById("speed");
-speedOutput.innerHTML = speedSlider.value;
-document.getElementById("speed-slider").oninput = function() {
-  speedOutput.innerHTML = this.value;
-}
+const speedSlider = document.getElementById("speed-slider");
+const speedOutput = document.getElementById("speed");
+
+
+// ---- Default settings ----
+
 speedSlider.style.display="none"
 speedOutput.style.display="none"
 const sortBtn = document.getElementById("sort-btn")
@@ -83,9 +84,12 @@ generateBtn.addEventListener("click", function(){
   fillArray()
   render(divs)
   generateBtn.style.display="none"
+  elSlider.style.display="none"
+  elOutput.style.display="none"
   sortBtn.style.display="inline-block"
-  elSlider.style.display="inline-block"
-  elOutput.style.display="inline-block"
+  speedSlider.style.display="inline-block"
+  speedOutput.style.display="inline-block"
+  
   
   }
 )
@@ -100,7 +104,7 @@ document.getElementById("sort-btn").addEventListener('click', async function(){
         const next = document.getElementById("generated-el@" + (divs[j+1].id))
           current.style.backgroundImage="linear-gradient(to right, green,#303234,green)"
           next.style.backgroundImage="linear-gradient(to right, green,#303234,green)"
-          await delay(10)
+          await delay(speedSlider.value*10)
           current.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
           next.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
             if(divs[j].val < divs[j+1].val){
@@ -113,7 +117,13 @@ document.getElementById("sort-btn").addEventListener('click', async function(){
               }
             }
     }
-   
+    sortBtn.style.display="none"
+    speedSlider.style.display="none"
+    speedOutput.style.display="none"
+    generateBtn.style.display="inline-block"
+    elSlider.style.display="inline-block"
+    elOutput.style.display="inline-block"
+
 })
 
 // ---- Rotate button ----

@@ -48,7 +48,7 @@ header{
         align-items: center;
     }
 
-    .slider::-webkit-slider-thumb {
+    /* .slider::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
         width: 25px;
@@ -56,14 +56,14 @@ header{
         border-radius: 50px;
         background: white;
         cursor: pointer;
-      }
+      } */
 
     #value,
     #speed{
         margin-left: .5em;
     }
 
-    .slider {
+    /* .slider {
         -webkit-appearance: none; 
         appearance: none; 
         outline: none;
@@ -71,7 +71,7 @@ header{
         width:80%;
         height:60%;
         background-image: linear-gradient(to bottom right,#4682B4,#7DF9FF,#4682B4);
-    }
+    } */
     .slidecontainer label {
         font-size:1rem;
     }
