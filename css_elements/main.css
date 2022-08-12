@@ -1,7 +1,7 @@
 /* ---- Main ---- */
 
 main{
-    height: 80%;
+    height: 82.5%;
     margin: 0;
 }
 
@@ -13,16 +13,14 @@ main{
     padding: 1em 0;
     border-top: 1px solid lightgrey;
     border-bottom: 1px solid lightgrey;
+    text-align: start;
 }
 
 .generated-elements{
-    background-image: linear-gradient(to right,#00BFFF,#9400D3);
     border-radius: 50px;
 }
 
 .generated-elements p{
     position:absolute;
     vertical-align: middle;
-    text-align: start;
-    margin-left: 5px;
 }

@@ -25,6 +25,11 @@ sortBtn.style.display="none"
 
 let divs = []
 let rows = true
+const checkBox = document.getElementById("turn-90-deg")
+
+checkBox.addEventListener("click",function(){
+  rows = !rows
+})
 // ---- Generate button ----
 
 const arrayElements = document.getElementById("array-el")
@@ -41,6 +46,7 @@ for(let j=0;j<arr.length;j++){
     generatedDiv.style.fontSize = 10/elSlider.value+"rem"
     generatedDiv.style.marginTop="1px"
     generatedDiv.style.position="relative"
+    generatedDiv.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
   }
   else{
     arrayElements.style.flexDirection="row"
@@ -50,6 +56,7 @@ for(let j=0;j<arr.length;j++){
     generatedDiv.style.fontSize = 10/elSlider.value+"rem"
     generatedDiv.style.marginRight="1px"
     generatedDiv.style.position="relative"
+    generatedDiv.style.backgroundImage="linear-gradient(to bottom,#00BFFF,#9400D3)"
   }
   
 }
@@ -71,12 +78,6 @@ function removeElements(){
     deleteEl.remove()
   }}
 
-  function copyArray(from,to){
-    for(let i=0;i<from.length;i++){
-      to[i]=from[i]
-    }
-
-  }
 const generateBtn = document.getElementById("generate-btn")
 generateBtn.addEventListener("click", function(){
   divs = []
@@ -107,12 +108,13 @@ document.getElementById("sort-btn").addEventListener('click', async function(){
           await delay(speedSlider.value*10)
           current.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
           next.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
+          removeElements()
+                render(divs)
             if(divs[j].val < divs[j+1].val){
                 let temp = divs[j]
                 divs[j]=divs[j+1]
                 divs[j+1]=temp
-                removeElements()
-                render(divs)
+                
                 
               }
             }
