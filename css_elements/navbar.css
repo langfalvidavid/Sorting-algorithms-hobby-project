@@ -1,12 +1,12 @@
 /* ---- Nav bar ---- */
 
+@import url("./toggle_switch.css");
+
 header{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    
-        height: 10%;
-        border-bottom: 1px solid lightgrey;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 15%;
     }
     
     header ul{
@@ -38,18 +38,29 @@ header{
     
     .controlling{
         display:flex;
-        justify-content: space-around;    
+        justify-content: space-between;
     }
 
     .slidecontainer{
         display: flex;
-        width: 50%;
-        justify-content: center;
+        width: 40%;
+        justify-content: flex-start ;
         align-items: center;
     }
 
-    #value{
-        margin-left: .75em;
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50px;
+        background: white;
+        cursor: pointer;
+      }
+
+    #value,
+    #speed{
+        margin-left: .5em;
     }
 
     .slider {
@@ -57,17 +68,24 @@ header{
         appearance: none; 
         outline: none;
         border-radius: 50px;
-        width:100%;
+        width:80%;
+        height:60%;
         background-image: linear-gradient(to bottom right,#4682B4,#7DF9FF,#4682B4);
     }
-
-    .header-btns{
-        width: 50%;
+    .slidecontainer label {
+        font-size:1rem;
     }
 
+     .header-btns{
+        width: 55%;
+        height:100%;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+    } 
+
     .header-btn{
-        display:inline-block;
-        font-size:.8rem;
+        font-size:1rem;
         padding: .3em 1em;
         background-image: linear-gradient(to bottom right,#4682B4,#7DF9FF,#4682B4);
         border:none;
@@ -78,8 +96,16 @@ header{
         cursor: pointer;
     }
 
+    .header-btns img{
+        width:15%;
+        cursor:pointer;
+
+    }
+
     .header-btn:hover,
-    .header-btn:focus{
+    .header-btn:focus,
+    .header-btns img:hover,
+    .header-btns img:focus{
         opacity: .6;
         transform:scale(1.005)
     }
@@ -87,6 +113,7 @@ header{
     #generate-btn{
         margin-right: .75em;
     }
+
 
     @keyframes opacity-change {
         from{

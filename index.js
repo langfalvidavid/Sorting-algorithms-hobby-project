@@ -23,7 +23,7 @@ sortBtn.style.display="none"
 
 
 let divs = []
-
+let rows = true
 // ---- Generate button ----
 
 const arrayElements = document.getElementById("array-el")
@@ -32,12 +32,25 @@ function render(arr){
 for(let j=0;j<arr.length;j++){
   arrayElements.insertAdjacentHTML("beforeend", arr[j].htmlEl)
   const generatedDiv = document.getElementById("generated-el@" + arr[j].id)
-  generatedDiv.style.width = `${arr[j].val/5}%`
-  generatedDiv.style.maxHeight = `20%`
-  generatedDiv.style.height = 90/elSlider.value+"%"
-  generatedDiv.style.fontSize = 10/elSlider.value+"em"
-  generatedDiv.style.marginTop="1px"
-  generatedDiv.style.position="relative"
+  if(rows){
+    arrayElements.style.flexDirection="column"
+    generatedDiv.style.width = `${arr[j].val/5}%`
+    generatedDiv.style.maxHeight = `20%`
+    generatedDiv.style.height = 90/elSlider.value+"%"
+    generatedDiv.style.fontSize = 10/elSlider.value+"rem"
+    generatedDiv.style.marginTop="1px"
+    generatedDiv.style.position="relative"
+  }
+  else{
+    arrayElements.style.flexDirection="row"
+    generatedDiv.style.height = `${arr[j].val/5}%`
+    generatedDiv.style.maxWidth = `20%`
+    generatedDiv.style.width = 90/elSlider.value+"%"
+    generatedDiv.style.fontSize = 10/elSlider.value+"rem"
+    generatedDiv.style.marginRight="1px"
+    generatedDiv.style.position="relative"
+  }
+  
 }
 }
 
@@ -87,7 +100,7 @@ document.getElementById("sort-btn").addEventListener('click', async function(){
         const next = document.getElementById("generated-el@" + (divs[j+1].id))
           current.style.backgroundImage="linear-gradient(to right, green,#303234,green)"
           next.style.backgroundImage="linear-gradient(to right, green,#303234,green)"
-          await delay(100)
+          await delay(10)
           current.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
           next.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
             if(divs[j].val < divs[j+1].val){
@@ -101,6 +114,25 @@ document.getElementById("sort-btn").addEventListener('click', async function(){
             }
     }
    
+})
+
+// ---- Rotate button ----
+
+let mode=1;
+
+document.getElementById("rotate").addEventListener("click", function(){
+  mode++
+  mode > 3 ? mode = 1: 
+  console.log(mode)
+  switch (mode){
+    case 1: arrayElements.style.alignItems="flex-end" 
+    break;
+    case 2: arrayElements.style.alignItems="center" 
+    break;
+    case 3: arrayElements.style.alignItems="flex-start" 
+    break;
+  } 
+
 })
 
 
