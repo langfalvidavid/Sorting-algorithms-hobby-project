@@ -10,6 +10,7 @@ main{
     display:flex;
     flex-direction: column;
     align-items:flex-start;
+    justify-content: space-evenly;
     padding: 1em 0;
     border-top: 1px solid lightgrey;
     border-bottom: 1px solid lightgrey;
@@ -18,9 +19,4 @@ main{
 
 .generated-elements{
     border-radius: 50px;
-}
-
-.generated-elements p{
-    position:absolute;
-    vertical-align: middle;
 }

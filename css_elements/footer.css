@@ -1,8 +1,9 @@
 footer{
-    height: 2.5%;
+    height: 1%;
 }
 
 footer p{
     font-size: 1rem;
-    margin-top: 1em;
+    margin:0;
+    padding:.5em 0 0 0;
 }

@@ -22,15 +22,20 @@ speedOutput.style.display="none"
 const sortBtn = document.getElementById("sort-btn")
 sortBtn.style.display="none"
 
-
 let divs = []
+
+// ---- Column-row layout switch ----
+
 let rows = true
 const checkBox = document.getElementById("turn-90-deg")
 
 checkBox.addEventListener("click",function(){
   rows = !rows
+  removeElements()
+  render(divs)
 })
-// ---- Generate button ----
+
+// ---- Generate button (functions) ----
 
 const arrayElements = document.getElementById("array-el")
 
@@ -38,6 +43,8 @@ function render(arr){
 for(let j=0;j<arr.length;j++){
   arrayElements.insertAdjacentHTML("beforeend", arr[j].htmlEl)
   const generatedDiv = document.getElementById("generated-el@" + arr[j].id)
+  const divText = document.getElementsByClassName("divText")
+  divText[j].style.position="absolute"
   if(rows){
     arrayElements.style.flexDirection="column"
     generatedDiv.style.width = `${arr[j].val/5}%`
@@ -46,7 +53,10 @@ for(let j=0;j<arr.length;j++){
     generatedDiv.style.fontSize = 10/elSlider.value+"rem"
     generatedDiv.style.marginTop="1px"
     generatedDiv.style.position="relative"
-    generatedDiv.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
+    generatedDiv.style.backgroundImage="linear-gradient(to right,#00BFFF,#BD33A4)"
+    divText[j].style.top="-30%"
+    divText[j].style.transform="translateY(-40%)"
+    divText[j].style.transform="translateX(15%)"
   }
   else{
     arrayElements.style.flexDirection="row"
@@ -56,7 +66,8 @@ for(let j=0;j<arr.length;j++){
     generatedDiv.style.fontSize = 10/elSlider.value+"rem"
     generatedDiv.style.marginRight="1px"
     generatedDiv.style.position="relative"
-    generatedDiv.style.backgroundImage="linear-gradient(to bottom,#00BFFF,#9400D3)"
+    generatedDiv.style.backgroundImage="linear-gradient(to bottom,#00BFFF,#BD33A4)"
+    generatedDiv.val < 100 ? divText[j].style.left="35%" : divText[j].style.left="25%"
   }
   
 }
@@ -66,7 +77,7 @@ function fillArray(){
 for(let i=0;i<elSlider.value;i++){
   const newRandom = randomNum()
   
-    const generatedDiv = {htmlEl:`<div id="generated-el@${i}" class="generated-elements"><p>${newRandom}</p></div>`,
+    const generatedDiv = {htmlEl:`<div id="generated-el@${i}" class="generated-elements"><p class="divText">${newRandom}</p></div>`,
                           val: newRandom,
                           id: i}
     divs.push(generatedDiv)
@@ -77,6 +88,8 @@ function removeElements(){
     const deleteEl = document.getElementById("generated-el@" + k)
     deleteEl.remove()
   }}
+
+// ---- Generate button ----
 
 const generateBtn = document.getElementById("generate-btn")
 generateBtn.addEventListener("click", function(){

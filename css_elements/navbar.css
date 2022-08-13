@@ -1,5 +1,3 @@
-/* ---- Nav bar ---- */
-
 @import url("./toggle_switch.css");
 
 header{
@@ -12,8 +10,9 @@ header{
     header ul{
         display:flex;
         font-size: .65rem;
-        justify-content: space-evenly;
-        padding: 0;
+        justify-content: space-between;
+        border-bottom: 1px solid lightgrey;
+        padding: 0 0 .2em 0;
     }
     
     header ul li {
@@ -39,6 +38,7 @@ header{
     .controlling{
         display:flex;
         justify-content: space-between;
+        padding-bottom: 1em;
     }
 
     .slidecontainer{
@@ -78,7 +78,7 @@ header{
     }
 
     .header-btns img{
-        width:15%;
+        width:10%;
         cursor:pointer;
 
     }

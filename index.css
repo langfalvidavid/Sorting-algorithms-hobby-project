@@ -1,8 +1,14 @@
+@import url("./css_elements/navbar.css");
+@import url("./css_elements/main.css");
+@import url("./css_elements/footer.css");
+
+
 *{
     box-sizing: border-box;
 }
 
 body{
+    margin:0;
     font-size: .4rem;
     font-family: 'Lato', sans-serif;
     text-align: center;
@@ -12,10 +18,57 @@ body{
 }
 .container{
     display:flex;
+
     flex-direction: column;
-    max-width:480px;
     text-shadow: 0 1px 3px black;
     letter-spacing: 1px;
-    height: 90vh;
+    height: 95vh;
+}
+
+@media (max-width: 575.98px) { 
+    html{
+        font-size: 16px;
+    }
+ }
+
+@media (max-width: 767.98px) { 
+    html{
+        font-size: 24px;
+    }
+ }
+
+@media (max-width: 991.98px) { 
+    html{
+        font-size: 32px;
+    }
+ }
+
+@media (max-width: 1199.98px) { 
+    html{
+        font-size: 40px;
+    }
+ }
+
+@media (min-width: 1200px) { 
+    html{
+        font-size: 25px;
+    }
+    .container{
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .slidecontainer{
+        width: 50%;
+    }
+    .header-btns{
+        width:50%;
+    }
+    .slider{
+        width: 80%;
+    }
+    .slidecontainer label{
+        width:10%;
+    }
+
 }
 

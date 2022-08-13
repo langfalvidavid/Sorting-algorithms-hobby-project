@@ -8,7 +8,7 @@ function delay(time) {
   }
 
  function randomNum () {
-    return Math.floor(Math.random()*500 + 1)
+    return Math.floor(Math.random()*500 + 10)
   }
 
   
