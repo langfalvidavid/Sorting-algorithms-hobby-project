@@ -24,17 +24,6 @@ sortBtn.style.display="none"
 
 let divs = []
 
-// ---- Column-row layout switch ----
-
-let rows = true
-const checkBox = document.getElementById("turn-90-deg")
-
-checkBox.addEventListener("click",function(){
-  rows = !rows
-  removeElements()
-  render(divs)
-})
-
 // ---- Generate button (functions) ----
 
 const arrayElements = document.getElementById("array-el")
@@ -93,6 +82,7 @@ function removeElements(){
 
 const generateBtn = document.getElementById("generate-btn")
 generateBtn.addEventListener("click", function(){
+  clicked=false;
   divs = []
   removeElements()
   fillArray()
@@ -109,9 +99,10 @@ generateBtn.addEventListener("click", function(){
 )
 
 // ---- Sort button ----
-
+let clicked = false
 document.getElementById("sort-btn").addEventListener('click', async function(){
-
+if(!clicked){
+  clicked=true
     for(let i = 0; i < divs.length; i++){
       for(let j = 0; j < ( divs.length - i -1 ); j++){
         const current = document.getElementById("generated-el@" + divs[j].id)
@@ -138,26 +129,31 @@ document.getElementById("sort-btn").addEventListener('click', async function(){
     generateBtn.style.display="inline-block"
     elSlider.style.display="inline-block"
     elOutput.style.display="inline-block"
-
+  }
 })
 
 // ---- Rotate button ----
-
+let rows = true
 let mode=1;
-
+let colSwitch = 0
 document.getElementById("rotate").addEventListener("click", function(){
   mode++
+  colSwitch++
   mode > 3 ? mode = 1: 
   console.log(mode)
   switch (mode){
-    case 1: arrayElements.style.alignItems="flex-end" 
+    case 1: arrayElements.style.alignItems="flex-start" 
     break;
     case 2: arrayElements.style.alignItems="center" 
     break;
-    case 3: arrayElements.style.alignItems="flex-start" 
-    break;
-  } 
-
+    case 3: arrayElements.style.alignItems="flex-end" 
+    break; 
+  }
+  if(colSwitch % 3 === 0){
+    rows = !rows
+    removeElements()
+    render(divs)
+  }
 })
 
 
