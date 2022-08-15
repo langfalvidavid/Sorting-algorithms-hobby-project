@@ -67,7 +67,7 @@ for(let j=0;j<arr.length;j++){
     generatedDiv.style.position="relative"
     generatedDiv.style.backgroundImage="linear-gradient(to bottom,#00BFFF,#BD33A4)"
     generatedDiv.val < 100 ? divText[j].style.left="35%" : divText[j].style.left="25%"
-    elSlider.value < 30? generatedDiv.style.fontSize = 5/elSlider.value+"rem" : generatedDiv.style.fontSize = 2/elSlider.value+"rem"
+    elSlider.value < 41? generatedDiv.style.fontSize = 5/elSlider.value+"rem" : ""
   }
   
 }
