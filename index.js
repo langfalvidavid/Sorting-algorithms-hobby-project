@@ -24,6 +24,17 @@ sortBtn.style.display="none"
 
 let divs = []
 
+// ---- Column-row layout switch ----
+
+let rows = true
+const checkBox = document.getElementById("turn-90-deg")
+
+checkBox.addEventListener("click",function(){
+  rows = !rows
+  removeElements()
+  render(divs)
+})
+
 // ---- Generate button (functions) ----
 
 const arrayElements = document.getElementById("array-el")
@@ -133,12 +144,9 @@ if(!clicked){
 })
 
 // ---- Rotate button ----
-let rows = true
 let mode=1;
-let colSwitch = 0
 document.getElementById("rotate").addEventListener("click", function(){
   mode++
-  colSwitch++
   mode > 3 ? mode = 1: 
   console.log(mode)
   switch (mode){
@@ -148,11 +156,6 @@ document.getElementById("rotate").addEventListener("click", function(){
     break;
     case 3: arrayElements.style.alignItems="flex-end" 
     break; 
-  }
-  if(colSwitch % 3 === 0){
-    rows = !rows
-    removeElements()
-    render(divs)
   }
 })
 

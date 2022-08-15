@@ -48,6 +48,11 @@ header{
         align-items: center;
     }
 
+    #speed-slider{
+        direction: rtl;
+        background:#4682B4;
+    }
+
     #value,
     #speed{
         margin-left: .5em;
@@ -67,7 +72,7 @@ header{
 
     .header-btn{
         font-size:1rem;
-        padding: .3em 1em;
+        padding: .3em .5em;
         background-image: linear-gradient(to bottom right,#4682B4,#7DF9FF,#4682B4);
         border:none;
         border-radius:50px;

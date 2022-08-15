@@ -51,7 +51,7 @@
   input:checked + .toggle-switch:before {
      -webkit-transform: translateX(20px); 
      -ms-transform: translateX(20px); 
-    transform: translateX(11vw); 
+    transform: translateX(10.5vw); 
   }
   
   .toggle-switch.round {
