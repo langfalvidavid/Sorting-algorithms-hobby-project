@@ -58,7 +58,6 @@ for(let j=0;j<arr.length;j++){
     generatedDiv.style.maxWidth = `20%`
     generatedDiv.style.width = 90/elSlider.value+"%"
     generatedDiv.style.marginRight="1px"
-    generatedDiv.style.position="relative"
     generatedDiv.style.backgroundImage="linear-gradient(to bottom,#00BFFF,#BD33A4)"
   }
   
