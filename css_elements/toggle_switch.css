@@ -29,10 +29,12 @@
   .toggle-switch:before {
     position: absolute;
     content: "";
-    height: 13px;
-    width: 13px;
+    height: 2vw;
+    width: 2vw;
+    max-width: 20px;
+    max-height:20px;
     left: 7px;
-    bottom: 4px;
+    bottom: .6vh;
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
@@ -47,12 +49,11 @@
   }
   
   input:checked + .toggle-switch:before {
-    -webkit-transform: translateX(20px);
-    -ms-transform: translateX(20px);
-    transform: translateX(45px);
+     -webkit-transform: translateX(20px); 
+     -ms-transform: translateX(20px); 
+    transform: translateX(11vw); 
   }
   
-  /* Make it */
   .toggle-switch.round {
     border-radius: 34px;
   }
