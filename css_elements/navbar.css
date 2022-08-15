@@ -37,7 +37,7 @@ header{
     
     .controlling{
         display:flex;
-        justify-content: space-between;
+        justify-content: space-around;
         padding-bottom: 1em;
     }
 
@@ -62,7 +62,7 @@ header{
         height:100%;
         display:flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
     } 
 
     .header-btn{
