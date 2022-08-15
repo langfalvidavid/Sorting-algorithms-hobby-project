@@ -43,8 +43,6 @@ function render(arr){
 for(let j=0;j<arr.length;j++){
   arrayElements.insertAdjacentHTML("beforeend", arr[j].htmlEl)
   const generatedDiv = document.getElementById("generated-el@" + arr[j].id)
-  const divText = document.getElementsByClassName("divText")
-  divText[j].style.position="absolute"
   if(rows){
     arrayElements.style.flexDirection="column"
     generatedDiv.style.width = `${arr[j].val/5}%`
@@ -52,11 +50,7 @@ for(let j=0;j<arr.length;j++){
     generatedDiv.style.height = 90/elSlider.value+"%"
     generatedDiv.style.fontSize = 10/elSlider.value+"rem"
     generatedDiv.style.marginTop="1px"
-    generatedDiv.style.position="relative"
     generatedDiv.style.backgroundImage="linear-gradient(to right,#00BFFF,#BD33A4)"
-    divText[j].style.top="-30%"
-    divText[j].style.transform="translateY(-40%)"
-    divText[j].style.transform="translateX(15%)"
   }
   else{
     arrayElements.style.flexDirection="row"
@@ -66,8 +60,6 @@ for(let j=0;j<arr.length;j++){
     generatedDiv.style.marginRight="1px"
     generatedDiv.style.position="relative"
     generatedDiv.style.backgroundImage="linear-gradient(to bottom,#00BFFF,#BD33A4)"
-    generatedDiv.val < 100 ? divText[j].style.left="35%" : divText[j].style.left="25%"
-    elSlider.value < 41? generatedDiv.style.fontSize = 5/elSlider.value+"rem" : generatedDiv.style.fontSize = "0px"
   }
   
 }
@@ -77,7 +69,7 @@ function fillArray(){
 for(let i=0;i<elSlider.value;i++){
   const newRandom = randomNum()
   
-    const generatedDiv = {htmlEl:`<div id="generated-el@${i}" class="generated-elements"><p class="divText">${newRandom}</p></div>`,
+    const generatedDiv = {htmlEl:`<div id="generated-el@${i}" class="generated-elements"></div>`,
                           val: newRandom,
                           id: i}
     divs.push(generatedDiv)
