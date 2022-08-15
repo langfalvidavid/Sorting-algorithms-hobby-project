@@ -43,7 +43,7 @@ header{
 
     .slidecontainer{
         display: flex;
-        width: 40%;
+        width: 35%;
         justify-content: flex-start ;
         align-items: center;
     }
@@ -59,11 +59,11 @@ header{
     }
 
     .slidecontainer label {
-        font-size:1rem;
+        font-size:.75rem;
     }
 
      .header-btns{
-        width:60%;
+        width:55%;
         height:100%;
         display:flex;
         align-items: center;
@@ -71,7 +71,7 @@ header{
     } 
 
     .header-btn{
-        font-size:1rem;
+        font-size:.75rem;
         padding: .3em .5em;
         background-image: linear-gradient(to bottom right,#4682B4,#7DF9FF,#4682B4);
         border:none;

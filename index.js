@@ -120,7 +120,7 @@ if(!clicked){
         const next = document.getElementById("generated-el@" + (divs[j+1].id))
           current.style.backgroundImage="linear-gradient(to right, green,#303234,green)"
           next.style.backgroundImage="linear-gradient(to right, green,#303234,green)"
-          await delay(speedSlider.value*10)
+          await delay(speedSlider.value)
           current.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
           next.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
           removeElements()
