@@ -63,11 +63,11 @@ for(let j=0;j<arr.length;j++){
     generatedDiv.style.height = `${arr[j].val/5}%`
     generatedDiv.style.maxWidth = `20%`
     generatedDiv.style.width = 90/elSlider.value+"%"
-    generatedDiv.style.fontSize = 5/elSlider.value+"rem"
     generatedDiv.style.marginRight="1px"
     generatedDiv.style.position="relative"
     generatedDiv.style.backgroundImage="linear-gradient(to bottom,#00BFFF,#BD33A4)"
     generatedDiv.val < 100 ? divText[j].style.left="35%" : divText[j].style.left="25%"
+    elSlider.value < 30? generatedDiv.style.fontSize = 5/elSlider.value+"rem" : generatedDiv.style.fontSize = 2/elSlider.value+"rem"
   }
   
 }
