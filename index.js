@@ -1,5 +1,6 @@
+import { bubbleSort, selectionSort, insertionSort } from './js_elements/sorting_algorithms.js';
 import {randomNum, delay} from './js_elements/utils.js'
-
+export {removeElements, render}
 // ---- Slider (element count) ----
 
 let elSlider = document.getElementById("element-slider");
@@ -63,7 +64,6 @@ for(let j=0;j<arr.length;j++){
   
 }
 }
-
 function fillArray(){
 for(let i=0;i<elSlider.value;i++){
   const newRandom = randomNum()
@@ -102,35 +102,29 @@ generateBtn.addEventListener("click", function(){
 
 // ---- Sort button ----
 let clicked = false
-document.getElementById("sort-btn").addEventListener('click', async function(){
+let sortingEnded = false
+document.getElementById("sort-btn").addEventListener('click', function(){
 if(!clicked){
   clicked=true
-    for(let i = 0; i < divs.length; i++){
-      for(let j = 0; j < ( divs.length - i -1 ); j++){
-        const current = document.getElementById("generated-el@" + divs[j].id)
-        const next = document.getElementById("generated-el@" + (divs[j+1].id))
-          current.style.backgroundImage="linear-gradient(to right, green,#303234,green)"
-          next.style.backgroundImage="linear-gradient(to right, green,#303234,green)"
-          await delay(speedSlider.value)
-          current.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
-          next.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
-          removeElements()
-                render(divs)
-            if(divs[j].val < divs[j+1].val){
-                let temp = divs[j]
-                divs[j]=divs[j+1]
-                divs[j+1]=temp
-                
-                
-              }
-            }
-    }
-    sortBtn.style.display="none"
-    speedSlider.style.display="none"
-    speedOutput.style.display="none"
-    generateBtn.style.display="inline-block"
-    elSlider.style.display="inline-block"
-    elOutput.style.display="inline-block"
+  if(bubbleSortBtn.classList.contains("current")){
+    bubbleSort(divs)
+  }
+  else if(selectionSortBtn.classList.contains("current")){
+    selectionSort(divs)
+  }
+  else if(insertionSortBtn.classList.contains("current")){
+    insertionSort(divs)
+  }
+  else if(mergeSortBtn.classList.contains("current")){
+    
+  }
+  else if(quickSortBtn.classList.contains("current")){
+    
+  }
+  else if(countingSortBtn.classList.contains("current")){
+    
+  }
+    
   }
 })
 
@@ -149,5 +143,34 @@ document.getElementById("rotate").addEventListener("click", function(){
     break; 
   }
 })
+
+// ---- Switch between sorting algorithms ----
+const sortingList = document.getElementById("sorting-list")
+const bubbleSortBtn = document.getElementById("bubble-sort")
+const selectionSortBtn = document.getElementById("selection-sort")
+const insertionSortBtn = document.getElementById("insertion-sort")
+const mergeSortBtn = document.getElementById("merge-sort")
+const quickSortBtn = document.getElementById("quick-sort")
+const countingSortBtn = document.getElementById("counting-sort")
+
+function deleteCurrent(){
+  const listItems = document.getElementsByTagName("li")
+  const listCount = sortingList.childElementCount
+for(let i=0;i<listCount;i++){
+  listItems[i].removeAttribute("class")
+}
+}
+function switchCurrent(button){
+    button.addEventListener("click", function(){
+    deleteCurrent()
+    button.classList.add("current")
+    })
+}
+switchCurrent(bubbleSortBtn)
+switchCurrent(selectionSortBtn)
+switchCurrent(insertionSortBtn)
+switchCurrent(mergeSortBtn)
+switchCurrent(quickSortBtn)
+switchCurrent(countingSortBtn)
 
 
