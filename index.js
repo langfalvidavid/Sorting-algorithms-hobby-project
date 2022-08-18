@@ -110,10 +110,10 @@ if(!clicked){
     bubbleSort(divs)
   }
   else if(selectionSortBtn.classList.contains("current")){
-    selectionSort(divs)
+    selectionSort(divs, rows)
   }
   else if(insertionSortBtn.classList.contains("current")){
-    insertionSort(divs)
+    insertionSort(divs, rows)
   }
   else if(mergeSortBtn.classList.contains("current")){
     

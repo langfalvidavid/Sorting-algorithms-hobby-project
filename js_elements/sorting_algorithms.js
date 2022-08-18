@@ -39,7 +39,7 @@ for(let i = 0; i < arr.length; i++){
   navBarDisplay()
 }
 
-async function selectionSort(arr) { 
+async function selectionSort(arr, rows) { 
   let n = arr.length;
       
   for(let i = 0; i < n; i++) {
@@ -48,11 +48,11 @@ async function selectionSort(arr) {
       for(let j = i+1; j < n; j++){
         const current = document.getElementById("generated-el@" + arr[min].id)
         const next = document.getElementById("generated-el@" + (arr[j].id))
-        current.style.backgroundImage="linear-gradient(to right, yellow,#303234,yellow)"
-        next.style.backgroundImage="linear-gradient(to right, green,#303234,green)"
-        await delay(speedSlider.value)
-        current.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
-        next.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
+          current.style.backgroundImage="linear-gradient(to right, orange,#303234,orange)"
+          next.style.backgroundImage="linear-gradient(to right, green,#303234,green)"
+          await delay(speedSlider.value)
+          current.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
+          next.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
         removeElements()
               render(arr)
           if(arr[j].val > arr[min].val) {
@@ -69,29 +69,27 @@ async function selectionSort(arr) {
   console.log(arr)
   navBarDisplay()
 }
-
-async function insertionSort(arr){
+async function insertionSort(arr, rows) {
   for (let i = 1; i < arr.length; i++) {
-    let j = i - 1
-    let temp = arr[i]
-    while (j >= 0 && arr[j].val > temp.val) {
-      arr[j + 1] = arr[j]
+    let currentValue = arr[i]
+    let j
+    for (j = i - 1; j >= 0 && arr[j].val > currentValue.val; j--) {
       const current = document.getElementById("generated-el@" + arr[j].id)
-      const next = document.getElementById("generated-el@" + (arr[j+1].id))
-        current.style.backgroundImage="linear-gradient(to right, green,#303234,green)"
-        next.style.backgroundImage="linear-gradient(to right, green,#303234,green)"
-        await delay(speedSlider.value)
-        current.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
-        next.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
-        removeElements()
-              render(arr)
-      j--
-     
+    current.style.backgroundImage="linear-gradient(to right, green,#303234,green)"
+    await delay(speedSlider.value)
+    current.style.backgroundImage="linear-gradient(to right, green,#303234,green)"
+    
+      arr[j + 1] = arr[j]
+      
     }
-    arr[j+1] = temp
+    
+    arr[j + 1] = currentValue
+    removeElements()
+    render(arr)
   }
-  navBarDisplay()
   console.log(arr)
+  
+  navBarDisplay()
 }
 
 export {bubbleSort, selectionSort, insertionSort}
