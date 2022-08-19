@@ -17,6 +17,8 @@ function navBarDisplay(){
     elOutput.style.display="inline-block"
 }
 
+// ---- Bubble sort ----
+
 async function bubbleSort(arr){
 for(let i = 0; i < arr.length; i++){
     for(let j = 0; j < ( arr.length - i -1 ); j++){
@@ -39,7 +41,9 @@ for(let i = 0; i < arr.length; i++){
   navBarDisplay()
 }
 
-async function selectionSort(arr, rows) { 
+// ---- Selection sort ----
+
+async function selectionSort(arr) { 
   let n = arr.length;
       
   for(let i = 0; i < n; i++) {
@@ -69,7 +73,10 @@ async function selectionSort(arr, rows) {
   console.log(arr)
   navBarDisplay()
 }
-async function insertionSort(arr, rows) {
+
+// ---- Insertion sort ----
+
+async function insertionSort(arr) {
   for (let i = 1; i < arr.length; i++) {
     let currentValue = arr[i]
     let j
@@ -92,4 +99,27 @@ async function insertionSort(arr, rows) {
   navBarDisplay()
 }
 
-export {bubbleSort, selectionSort, insertionSort}
+// ---- Merge sort ----
+
+function mergeArrays(leftArray, rightArray) {
+  let ary = []
+  while (leftArray.length && rightArray.length) {
+      if (leftArray[0] < rightArray[0]) {
+          ary.push(leftArray.shift())  
+      } else {
+          ary.push(rightArray.shift())
+      }
+  }
+  return [ ...ary, ...leftArray, ...rightArray ]
+}
+function mergeSort(arr) {
+  const midle_index = arr.length / 2
+  if(arr.length < 2){
+    return arr
+  }
+ 
+  const leftArray = arr.splice(0, midle_index)
+  return mergeArrays(mergeSort(leftArray),mergeSort(arr))
+}
+
+export {bubbleSort, selectionSort, insertionSort, mergeSort}

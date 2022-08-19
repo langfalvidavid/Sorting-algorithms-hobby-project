@@ -1,4 +1,4 @@
-import { bubbleSort, selectionSort, insertionSort } from './js_elements/sorting_algorithms.js';
+import { bubbleSort, selectionSort, insertionSort, mergeSort } from './js_elements/sorting_algorithms.js';
 import {randomNum, delay} from './js_elements/utils.js'
 export {removeElements, render}
 // ---- Slider (element count) ----
@@ -30,10 +30,14 @@ let divs = []
 let rows = true
 const checkBox = document.getElementById("turn-90-deg")
 
-checkBox.addEventListener("click",function(){
-  rows = !rows
-  removeElements()
-  render(divs)
+checkBox.addEventListener("click", function(){
+  if(!sortingStarted){
+    rows = !rows
+    removeElements()
+    render(divs)
+  }
+  else{rows = !rows}
+  
 })
 
 // ---- Generate button (functions) ----
@@ -84,6 +88,7 @@ function removeElements(){
 
 const generateBtn = document.getElementById("generate-btn")
 generateBtn.addEventListener("click", function(){
+  sortingStarted = false
   clicked=false;
   divs = []
   removeElements()
@@ -102,21 +107,23 @@ generateBtn.addEventListener("click", function(){
 
 // ---- Sort button ----
 let clicked = false
-let sortingEnded = false
+let sortingStarted = false
 document.getElementById("sort-btn").addEventListener('click', function(){
 if(!clicked){
+  sortingStarted=true
   clicked=true
   if(bubbleSortBtn.classList.contains("current")){
     bubbleSort(divs)
   }
   else if(selectionSortBtn.classList.contains("current")){
-    selectionSort(divs, rows)
+    selectionSort(divs)
   }
   else if(insertionSortBtn.classList.contains("current")){
-    insertionSort(divs, rows)
+    insertionSort(divs)
   }
   else if(mergeSortBtn.classList.contains("current")){
-    
+    mergeSort(divs)
+    console.log(divs)
   }
   else if(quickSortBtn.classList.contains("current")){
     
