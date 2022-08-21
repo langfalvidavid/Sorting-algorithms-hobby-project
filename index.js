@@ -1,4 +1,4 @@
-import { bubbleSort, selectionSort, insertionSort, mergeSort } from './js_elements/sorting_algorithms.js';
+import { bubbleSort, selectionSort, insertionSort, mergeSort, quickSort} from './js_elements/sorting_algorithms.js';
 import {randomNum, delay} from './js_elements/utils.js'
 export {removeElements, render}
 // ---- Slider (element count) ----
@@ -126,7 +126,8 @@ if(!clicked){
     console.log(divs)
   }
   else if(quickSortBtn.classList.contains("current")){
-    
+    quickSort(divs)
+    console.log(divs)
   }
   else if(countingSortBtn.classList.contains("current")){
     
