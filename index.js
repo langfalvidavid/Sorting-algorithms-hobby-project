@@ -1,4 +1,4 @@
-import { bubbleSort, selectionSort, insertionSort, mergeSort, quickSort} from './js_elements/sorting_algorithms.js';
+import { bubbleSort, selectionSort, insertionSort, quickSort} from './js_elements/sorting_algorithms.js';
 import {randomNum, delay} from './js_elements/utils.js'
 export {removeElements, render}
 // ---- Slider (element count) ----
@@ -121,18 +121,10 @@ if(!clicked){
   else if(insertionSortBtn.classList.contains("current")){
     insertionSort(divs)
   }
-  else if(mergeSortBtn.classList.contains("current")){
-    mergeSort(divs)
-    console.log(divs)
-  }
   else if(quickSortBtn.classList.contains("current")){
     quickSort(divs)
     console.log(divs)
   }
-  else if(countingSortBtn.classList.contains("current")){
-    
-  }
-    
   }
 })
 
@@ -157,9 +149,7 @@ const sortingList = document.getElementById("sorting-list")
 const bubbleSortBtn = document.getElementById("bubble-sort")
 const selectionSortBtn = document.getElementById("selection-sort")
 const insertionSortBtn = document.getElementById("insertion-sort")
-const mergeSortBtn = document.getElementById("merge-sort")
 const quickSortBtn = document.getElementById("quick-sort")
-const countingSortBtn = document.getElementById("counting-sort")
 
 function deleteCurrent(){
   const listItems = document.getElementsByTagName("li")
@@ -177,8 +167,6 @@ function switchCurrent(button){
 switchCurrent(bubbleSortBtn)
 switchCurrent(selectionSortBtn)
 switchCurrent(insertionSortBtn)
-switchCurrent(mergeSortBtn)
 switchCurrent(quickSortBtn)
-switchCurrent(countingSortBtn)
 
 

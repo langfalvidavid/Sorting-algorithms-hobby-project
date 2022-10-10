@@ -99,34 +99,7 @@ async function insertionSort(arr) {
   navBarDisplay()
 }
 
-// ---- Merge sort ----
-
-function mergeArrays(leftArray, rightArray) {
-  let ary = []
-  while (leftArray.length && rightArray.length) {
-      if (leftArray[0].val < rightArray[0].val) {
-          ary.push(leftArray.shift())  
-      } else {
-          ary.push(rightArray.shift())
-      }
-  }
-  return [ ...ary, ...leftArray, ...rightArray ]
-}
-function mergeSort(arr) {
-  const midle_index = arr.length / 2
-  if(arr.length < 2){
-    return arr
-  }
- 
-  const leftArray = arr.splice(0, midle_index)
-  return mergeArrays(mergeSort(leftArray),mergeSort(arr))
-}
-
 // ---- Quick sort ----
-
-
-
-
 
 
 const swap = (arr, left, right) =>  {
@@ -135,17 +108,19 @@ const swap = (arr, left, right) =>  {
   arr[right] = temp;
 }
 
-const partitionHigh = (arr, low, high) => {
+async function partitionHigh(arr, low, high) {
   //Pick the first element as pivot
   let pivot = arr[high];
   let i = low;
   
   //Partition the array into two parts using the pivot
   for(let j = low; j < high; j++){
+    const pivotVal = document.getElementById("generated-el@" + pivot.id)
+    pivotVal.style.backgroundImage="linear-gradient(to right, yellow,#303234,yellow)"
     const current = document.getElementById("generated-el@" + arr[j].id)
+    // await delay(speedSlider.value)
     current.style.backgroundImage="linear-gradient(to right, green,#303234,green)"
-    setTimeout(()=>{current.style.backgroundImage="linear-gradient(to right, green,#303234,green)",speedSlider.value})
-    current.style.backgroundImage="linear-gradient(to right, green,#303234,green)"
+    await delay(speedSlider.value)
     removeElements()
     render(arr)
     if(arr[j].val <= pivot.val){      
@@ -160,7 +135,7 @@ const partitionHigh = (arr, low, high) => {
   return i;
 }
 
-function quickSort(arr) {
+async function quickSort(arr) {
   //Stack for storing start and end index
   let stack = [];
   
@@ -177,7 +152,7 @@ function quickSort(arr) {
     const { x, y } = stack.shift();
     
     //Partition the array along the pivot
-    const PI = partitionHigh(arr, x, y);
+    const PI = await partitionHigh(arr, x, y);
     
     //Push sub array with less elements than pivot into the stack
     if(PI - 1 > x){
@@ -189,7 +164,11 @@ function quickSort(arr) {
       stack.push({x: PI + 1, y: y});
     }
   }
+  
+  removeElements()
+  render(arr)
+  navBarDisplay()
 }
 
 
-export {bubbleSort, selectionSort, insertionSort, mergeSort, quickSort}
+export {bubbleSort, selectionSort, insertionSort, quickSort}
