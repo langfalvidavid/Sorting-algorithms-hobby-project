@@ -116,10 +116,12 @@ async function partitionHigh(arr, low, high) {
   //Partition the array into two parts using the pivot
   for(let j = low; j < high; j++){
     const pivotVal = document.getElementById("generated-el@" + pivot.id)
-    pivotVal.style.backgroundImage="linear-gradient(to right, yellow,#303234,yellow)"
+    const currentLow = document.getElementById("generated-el@" + arr[i].id)
+    pivotVal.style.backgroundImage="linear-gradient(to right, white, white)"
     const current = document.getElementById("generated-el@" + arr[j].id)
     // await delay(speedSlider.value)
-    current.style.backgroundImage="linear-gradient(to right, green,#303234,green)"
+    current.style.backgroundImage="linear-gradient(to right, orange, orange)"
+    currentLow.style.backgroundImage="linear-gradient(to right, white, white)"
     await delay(speedSlider.value)
     removeElements()
     render(arr)
