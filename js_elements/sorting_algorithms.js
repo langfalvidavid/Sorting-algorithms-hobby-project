@@ -24,8 +24,8 @@ for(let i = 0; i < arr.length; i++){
     for(let j = 0; j < ( arr.length - i -1 ); j++){
         const current = document.getElementById("generated-el@" + arr[j].id)
         const next = document.getElementById("generated-el@" + (arr[j+1].id))
-        current.style.backgroundImage="linear-gradient(to right, green, green)"
-        next.style.backgroundImage="linear-gradient(to right, green, green)"
+        current.style.backgroundImage="linear-gradient(to right, white, white)"
+        next.style.backgroundImage="linear-gradient(to right, white, white)"
         await delay(speedSlider.value)
         current.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
         next.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
@@ -53,7 +53,7 @@ async function selectionSort(arr) {
         const current = document.getElementById("generated-el@" + arr[min].id)
         const next = document.getElementById("generated-el@" + (arr[j].id))
           current.style.backgroundImage="linear-gradient(to right, orange, orange)"
-          next.style.backgroundImage="linear-gradient(to right, green, green)"
+          next.style.backgroundImage="linear-gradient(to right, white, white)"
           await delay(speedSlider.value)
           current.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
           next.style.backgroundImage="linear-gradient(to right,#00BFFF,#9400D3)"
@@ -82,9 +82,9 @@ async function insertionSort(arr) {
     let j
     for (j = i - 1; j >= 0 && arr[j].val > currentValue.val; j--) {
       const current = document.getElementById("generated-el@" + arr[j].id)
-    current.style.backgroundImage="linear-gradient(to right, green, green)"
+    current.style.backgroundImage="linear-gradient(to right, white, white)"
     await delay(speedSlider.value)
-    current.style.backgroundImage="linear-gradient(to right, green, green)"
+    current.style.backgroundImage="linear-gradient(to right, white, white)"
     
       arr[j + 1] = arr[j]
       
